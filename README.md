@@ -1,2 +1,4 @@
-# train_tickets
+# Django web project.
 University Project
+
+...
