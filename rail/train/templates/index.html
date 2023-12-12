@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'index.css' %}">
+<script src="{% static 'index.js' %}"></script>
+<div class="search-text contrainer mt-5">
+    <h3>Поиск билетов</h3>
+</div>
+<div class="search container mt-5">
+    <form action="trains/" method="post">
+        {% csrf_token %}
+        <div class="input-group">
+            <input type="text" placeholder="Откуда" class="form-control" id="inputFrom" list="stationsfrom" name="inputFrom">
+            <input hidden id="inputFromId" name="inputFromId">
+            <datalist id="stationsfrom"></datalist>
+            <input type="text" placeholder="Куда" class="form-control" id="inputTo" list="stationsto" name="inputTo">
+            <input hidden id="inputToId" name="inputToId">
+            <datalist id="stationsto"></datalist>
+            <input type="date" class="form-control" id="inputDate" name="inputDate">
+            <input type="submit" class="input-group-text" id="searchSubmit" value="Найти" name="submit">
+        </div>
+    </form>
+</div>
+{% endblock %}

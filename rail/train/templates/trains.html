@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'trains.css' %}">
+<!-- <script src="{% static 'trains.js' %}"></script> -->
+<div class="rasp-header contrainer mt-5 mb-3">
+    <h3>Расписание поездов и ж/д билеты из {{ from }} в {{ to }}</h3>
+</div>
+<div class="search container mt-5">
+{% for item in segments %}
+    <div class="container col-12 thread mb-3">
+        <div class="row border border-dark rounded">
+            <div class="col-3">
+                <div class="m-3">
+                    <a href="" class="link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover">{{ item.thread.number }} {{ item.thread.title }}</a>
+                </div>
+            </div>
+            <div class="col">
+                <p class="m-3">
+                    {{ item.departure|date:"d b" }} <br>
+                    {{ item.departure|time:"H:i" }} <br>
+                    {{ from }}
+                </p>
+            </div>
+            <div class="col">
+                <p class="m-3">
+                    {{ item.duration|time:"H:i" }}
+                </p>
+            </div>
+            <div class="col">
+                <p class="m-3">
+                    {{ item.arrival|date:"d b"}} <br>
+                    {{ item.arrival|time:"H:i"}} <br>
+                    {{ to }}
+                </p>
+            </div>
+            <div class="col-1">
+                <button class="btn btn-dark mr-3 mt-4">Купить</button>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
