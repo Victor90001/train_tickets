@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.urls import path
 from train import views
 
+
+admin.site.site_header = "Администрирование"
+admin.site.site_title = "Административный сайт"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
