@@ -56,6 +56,7 @@ class Ticket(models.Model):
 class Customer(models.Model):
     customer_id = models.AutoField(primary_key=True)
     fio = models.TextField()
+    birth_date = models.DateField()
     passport = models.TextField()
     country = models.TextField()
     city = models.TextField()
