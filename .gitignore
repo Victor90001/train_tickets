@@ -2,3 +2,4 @@ venv/
 rail/__pycache__/
 rail/train/__pycache__/
 rail/train/migrations/
+.venv/
